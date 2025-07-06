@@ -3,8 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./about.css";
 import aboutImage from "../../assets/images/about/aboutimg.png";
 import bgImage from "../../assets/images/about/bg.png";
-import img7 from "../../assets/images/about/img7.jpg";
-import bg1 from "../../assets/images/about/bg1.png";
 import new1 from "../../assets/images/new/1.jpg";
 import new2 from "../../assets/images/new/2.jpg";
 import new3 from "../../assets/images/new/3.jpg";
