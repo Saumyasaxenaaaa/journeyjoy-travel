@@ -1,111 +1,205 @@
-/* sticky menu  */
-
-.is-sticky {
+/* Header Styles */
+.header-section {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  animation: smothScroll 1s forwards;
-  background: var(--white);
   z-index: 999;
-  box-shadow: var(--bs-box-shadow-sm) !important;
+  background: rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+  padding: 15px 0;
 }
-@keyframes smothScroll {
+
+.header-section.is-sticky {
+  background: var(--white);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  animation: smoothScroll 0.5s ease;
+}
+
+@keyframes smoothScroll {
   0% {
-    transform: translateY(-40px);
+    transform: translateY(-100%);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
 }
 
-.is-sticky .navbar .navbar-brand a,
-.is-sticky .navbar .offcanvas-body a {
-  color: var(--black) !important;
-}
-
-.is-sticky .toggle_btn {
-  color: var(--primaryClr) !important;
-}
-
-header {
-  position: absolute;
-  top: 0;
-  z-index: 999;
-  padding: 12px 0px;
-  width: 100%;
-}
-
-header .navbar .navbar-brand a {
-  font-size: 22px;
+/* Logo Styles */
+.header-section .navbar .navbar-brand a {
+  font-size: 24px;
   color: var(--white);
-  line-height: 150%;
   font-family: var(--fontFamily1);
   font-weight: bold;
-  text-transform: capitalize;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header-section.is-sticky .navbar .navbar-brand a {
+  color: var(--black);
+}
+
+/* Navigation Links */
+.header-section .navbar .offcanvas-body .nav-link {
+  font-size: 14px;
+  color: var(--white) !important;
+  font-family: var(--fontFamily);
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 8px 15px !important;
+  margin: 0 5px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
-header .navbar .offcanvas-body a {
-  font-size: 14px;
-  color: var(--white) !important;
-  line-height: 150%;
-  font-family: var(--fontFamily);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-header .navbar .offcanvas-body .dropdown-menu a {
-  color:black !important
-}
-
-header .navbar .offcanvas-body a:hover {
+.header-section .navbar .offcanvas-body .nav-link:hover {
   color: var(--primaryClr) !important;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-header .navbar .offcanvas-body .dropdown-menu {
-  min-width: 12rem;
-}
-
-header .navbar .offcanvas-body .dropdown-menu .dropdown-item {
+.header-section.is-sticky .navbar .offcanvas-body .nav-link {
   color: var(--black) !important;
 }
 
+.header-section.is-sticky .navbar .offcanvas-body .nav-link:hover {
+  color: var(--primaryClr) !important;
+  background: rgba(254, 78, 55, 0.1);
+}
+
+/* Dropdown Styles */
+.header-section .navbar .dropdown-menu {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+.header-section .navbar .dropdown-item {
+  color: var(--black) !important;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.header-section .navbar .dropdown-item:hover {
+  background: var(--primaryClr);
+  color: var(--white) !important;
+}
+
+/* Book Now Button */
+.header-section .primaryBtn {
+  background: var(--primaryClr);
+  color: var(--white) !important;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primaryClr);
+}
+
+.header-section .primaryBtn:hover {
+  background: transparent;
+  color: var(--primaryClr) !important;
+  border-color: var(--primaryClr);
+}
+
+/* Mobile Toggle Button */
+.header-section .toggle_btn {
+  color: var(--white);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  list-style: none;
+}
+
+.header-section.is-sticky .toggle_btn {
+  color: var(--black);
+}
+
+.header-section .toggle_btn:hover {
+  color: var(--primaryClr);
+}
+
+/* Mobile Offcanvas Styles */
 @media only screen and (max-width: 991px) {
-  header .navbar .toggle_btn {
-    font-size: var(--bodyText);
-    color: var(--white);
-    border: 2px solid var(--white);
-    padding: 7px 10px;
+  .header-section .navbar .offcanvas {
+    background: var(--white);
   }
 
-  .is-sticky .navbar .toggle_btn {
-    border: 2px solid var(--primaryClr);
+  .header-section .navbar .offcanvas-header {
+    border-bottom: 1px solid #e9ecef;
+    padding: 20px;
   }
 
-  .offcanvas-header {
-    border: 1px solid gainsboro;
-  }
-
-  .offcanvas-header .logo{
-    font-size: 26px;
+  .header-section .navbar .offcanvas-header .logo {
+    font-size: 24px;
     color: var(--black) !important;
     font-family: var(--fontFamily1);
     font-weight: bold;
     text-decoration: none;
   }
 
-  .offcanvas-body .nav-link {
-    padding: 12px 0px;
-    color:var(--black);
+  .header-section .navbar .offcanvas-header .navbar-toggler {
+    background: none;
+    border: none;
+    color: var(--black);
+    font-size: 20px;
+    cursor: pointer;
   }
 
-  .offcanvas-body .dropdown-item{
-    padding: 12px 10px;
-    color:var(--black);
+  .header-section .navbar .offcanvas-body {
+    padding: 20px;
   }
 
+  .header-section .navbar .offcanvas-body .nav-link {
+    color: var(--black) !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #f0f0f0;
+    margin: 0;
+  }
 
+  .header-section .navbar .offcanvas-body .nav-link:hover {
+    color: var(--primaryClr) !important;
+    background: none;
+  }
 
+  .header-section .navbar .offcanvas-body .dropdown-menu {
+    border: none;
+    box-shadow: none;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
 
+  .header-section .navbar .offcanvas-body .dropdown-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .header-section .navbar .offcanvas-body .dropdown-item:hover {
+    background: var(--primaryClr);
+    color: var(--white) !important;
+  }
+
+  .header-section .primaryBtn {
+    display: none !important;
+  }
+}
+
+/* Active Link Styles */
+.header-section .navbar .offcanvas-body .nav-link.active {
+  color: var(--primaryClr) !important;
+  background: rgba(254, 78, 55, 0.1);
+}
+
+.header-section.is-sticky .navbar .offcanvas-body .nav-link.active {
+  color: var(--primaryClr) !important;
+  background: rgba(254, 78, 55, 0.1);
 }
